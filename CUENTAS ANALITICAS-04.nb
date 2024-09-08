@@ -1,0 +1,1258 @@
+(***********************************************************************
+
+                    Mathematica-Compatible Notebook
+
+This notebook can be used on any computer system with Mathematica 4.0,
+MathReader 4.0, or any compatible application. The data for the notebook 
+starts with the line containing stars above.
+
+To get the notebook into a Mathematica-compatible application, do one of 
+the following:
+
+* Save the data starting with the line of stars above into a file
+  with a name ending in .nb, then open the file inside the application;
+
+* Copy the data starting with the line of stars above to the
+  clipboard, then use the Paste menu command inside the application.
+
+Data for notebooks contains only printable 7-bit ASCII and can be
+sent directly in email or through ftp in text mode.  Newlines can be
+CR, LF or CRLF (Unix, Macintosh or MS-DOS style).
+
+NOTE: If you modify the data for this notebook not in a Mathematica-
+compatible application, you must delete the line below containing the 
+word CacheID, otherwise Mathematica-compatible applications may try to 
+use invalid cache data.
+
+For more information on notebooks and Mathematica-compatible 
+applications, contact Wolfram Research:
+  web: http://www.wolfram.com
+  email: info@wolfram.com
+  phone: +1-217-398-0700 (U.S.)
+
+Notebook reader applications are available free of charge from 
+Wolfram Research.
+***********************************************************************)
+
+(*CacheID: 232*)
+
+
+(*NotebookFileLineBreakTest
+NotebookFileLineBreakTest*)
+(*NotebookOptionsPosition[     32947,       1000]*)
+(*NotebookOutlinePosition[     33683,       1026]*)
+(*  CellTagsIndexPosition[     33639,       1022]*)
+(*WindowFrame->Normal*)
+
+
+
+Notebook[{
+Cell[BoxData[{
+    \(Off[General::"\<spell\>"]\), "\n", 
+    \(Off[General::"\<spell1\>"]\), "\n", 
+    \(\(<< \ LinearAlgebra`MatrixManipulation`;\)\), "\n", 
+    \(\(<< NumericalMath`GaussianQuadrature`;\)\), "\n", 
+    \(<< NumericalMath`LobattoQuadrature`\), "\[IndentingNewLine]", 
+    \(<< NumericalMath`NewtonCotes`\), "\n", 
+    \(<< Graphics`MultipleListPlot`\)}], "Input",
+  PageWidth->Infinity,
+  CellMargins->{{18.25, 33}, {Inherited, Inherited}},
+  Background->None],
+
+Cell[CellGroupData[{
+
+Cell["PLANTEO ANAL\[CapitalIAcute]TICO", "Subtitle",
+  PageWidth->Infinity,
+  CellMargins->{{18, Inherited}, {Inherited, Inherited}}],
+
+Cell[CellGroupData[{
+
+Cell["FUNCIONES DE FORMA", "Section",
+  PageWidth->Infinity,
+  CellMargins->{{18, 154.813}, {Inherited, Inherited}}],
+
+Cell[CellGroupData[{
+
+Cell["INICIALIZACI\[CapitalOAcute]N", "Subsection",
+  PageWidth->Infinity,
+  CellMargins->{{18, 154.813}, {Inherited, Inherited}}],
+
+Cell[BoxData[
+    \(Off[General::"\<spell1\>"]\)], "Input",
+  PageWidth->Infinity,
+  CellMargins->{{18, 154.813}, {Inherited, Inherited}}],
+
+Cell[BoxData[
+    \(Clear[i, y, c, Eo, Ee, L, d, bo, NF, A]\)], "Input",
+  PageWidth->Infinity,
+  CellMargins->{{18, 154.813}, {Inherited, Inherited}}],
+
+Cell[BoxData[
+    \(Clear[u, u1, u2, \[CapitalDelta]u3, w, w1, w2, \[Theta]1, \[Theta]2, z, 
+      z1, z2, \[Alpha]1, \[Alpha]2, wp]\)], "Input",
+  PageWidth->Infinity,
+  CellMargins->{{18, 154.813}, {Inherited, Inherited}}],
+
+Cell[BoxData[
+    \(\(<< \ LinearAlgebra`MatrixManipulation`;\)\)], "Input",
+  PageWidth->Infinity,
+  CellMargins->{{18, 154.813}, {Inherited, Inherited}}]
+}, Closed]],
+
+Cell[CellGroupData[{
+
+Cell["TRANSFORMACION DE COORDENADAS", "Subsection",
+  PageWidth->Infinity,
+  CellMargins->{{18, 154.813}, {Inherited, Inherited}}],
+
+Cell[BoxData[{
+    \(Clear[x, r]\), "\n", 
+    \(x[r_] := L/2\ \((1 + r)\)\), "\n", 
+    \(J = \(x'\)[r]\)}], "Input",
+  PageWidth->Infinity,
+  CellMargins->{{18, 154.813}, {Inherited, Inherited}}],
+
+Cell[BoxData[
+    \(Clear[Nu, Nw, N\[Theta]]\)], "Input",
+  PageWidth->Infinity,
+  CellMargins->{{18, 154.813}, {Inherited, Inherited}}]
+}, Closed]],
+
+Cell[CellGroupData[{
+
+Cell["INTERPOLACI\[CapitalOAcute]N SIN CONSIDERAR DEFORMACIONES POR CORTE", \
+"Subsection",
+  PageWidth->Infinity,
+  CellMargins->{{18, 154.813}, {Inherited, Inherited}}],
+
+Cell[CellGroupData[{
+
+Cell["FUNCIONES DE FORMA - w(x)", "Subsubsection",
+  PageWidth->Infinity,
+  CellMargins->{{18, 154.813}, {Inherited, Inherited}}],
+
+Cell[BoxData[{
+    \(\(Clear[p, X, a0, a1, a2, a3, A, V, EQ1, EQ2, EQ3, EQ4, EQ5, 
+        g];\)\), "\n", 
+    \(\(X := {1, x, x^2, x^3};\)\), "\n", 
+    \(\(a := {a0, a1, a2, a3};\)\), "\n", 
+    \(p[x_] = X . a\)}], "Input",
+  PageWidth->Infinity,
+  CellMargins->{{18, 154.813}, {Inherited, Inherited}}],
+
+Cell[BoxData[{
+    \(\(EQ1 = p[0] == w1;\)\), "\[IndentingNewLine]", 
+    \(\(EQ2 = p[L] == w2;\)\), "\[IndentingNewLine]", 
+    \(EQ3 = \(p'\)[0] == \[Theta]1; EQ4 = \(p'\)[L] == \[Theta]2;\)}], "Input",\
+
+  PageWidth->Infinity,
+  CellMargins->{{18, 154.813}, {Inherited, Inherited}}],
+
+Cell[BoxData[{
+    \(Clear[A, V]\), "\n", 
+    \(\({A, V} = 
+        LinearEquationsToMatrices[{EQ1, EQ2, EQ3, EQ4}, a];\)\), "\n", 
+    \(\(A // MatrixForm\) // TraditionalForm\)}], "Input",
+  PageWidth->Infinity,
+  CellMargins->{{18, Inherited}, {Inherited, Inherited}}],
+
+Cell[BoxData[{
+    \(\(Clear[Nw];\)\), "\n", 
+    \(Nw[x_] = \(\(X . Inverse[A]\)\(\ \)\)\)}], "Input",
+  PageWidth->Infinity,
+  CellMargins->{{18, Inherited}, {Inherited, Inherited}}],
+
+Cell[BoxData[
+    \(Nw[x]\)], "Input",
+  PageWidth->Infinity],
+
+Cell[BoxData[
+    \(hw[r_] = Transpose[{Nw[x[r]]}]\  // FullSimplify\)], "Input",
+  PageWidth->Infinity,
+  CellMargins->{{18, Inherited}, {Inherited, Inherited}}]
+}, Open  ]],
+
+Cell[CellGroupData[{
+
+Cell["MATRIZ DERIVADA - Bw(x)", "Subsubsection",
+  PageWidth->Infinity,
+  CellMargins->{{18, Inherited}, {Inherited, Inherited}}],
+
+Cell[BoxData[{
+    \(Clear[Bu, bu]\), "\n", 
+    \(Bw[x_] = D[Nw[x], x] // Simplify\)}], "Input",
+  PageWidth->Infinity,
+  CellMargins->{{18, Inherited}, {Inherited, Inherited}}],
+
+Cell[BoxData[
+    \(Bw[x] // FullSimplify\)], "Input",
+  PageWidth->Infinity],
+
+Cell[BoxData[
+    \(bw[r_] = \n\tTranspose[{Bw[x[r]]}]\n // FullSimplify\)], "Input",
+  PageWidth->Infinity,
+  CellMargins->{{18, Inherited}, {Inherited, Inherited}}],
+
+Cell[BoxData[
+    \(Clear[p, X, a, a0, a1, a2, a3, A, V]\)], "Input",
+  PageWidth->Infinity,
+  CellMargins->{{18, Inherited}, {Inherited, Inherited}}]
+}, Closed]],
+
+Cell[CellGroupData[{
+
+Cell["FUNCIONES DE FORMA - u(x)", "Subsubsection",
+  PageWidth->Infinity,
+  CellMargins->{{18, Inherited}, {Inherited, Inherited}}],
+
+Cell[BoxData[{
+    \(\(X := {1, x, x^2};\)\), "\n", 
+    \(\(a := {a0, a1, a2};\)\), "\n", 
+    \(p[x_] = \(\(X . a\)\(\[IndentingNewLine]\)\)\)}], "Input",
+  PageWidth->Infinity,
+  CellMargins->{{18, Inherited}, {Inherited, Inherited}}],
+
+Cell[BoxData[{
+    \(\(EQ1 = p[0] \[Equal] u1;\)\), "\n", 
+    \(\(EQ2 = p[L] \[Equal] u2;\)\), "\n", 
+    \(\(EQ3 = p[L/2] == u3;\)\)}], "Input",
+  PageWidth->Infinity,
+  CellMargins->{{18, Inherited}, {Inherited, Inherited}}],
+
+Cell[BoxData[{
+    \(Clear[A, V]\), "\n", 
+    \(\({A, V} = LinearEquationsToMatrices[{EQ1, EQ2, EQ3}, a];\)\), "\n", 
+    \(A // MatrixForm\)}], "Input",
+  PageWidth->Infinity,
+  CellMargins->{{18, Inherited}, {Inherited, Inherited}}],
+
+Cell[BoxData[
+    \(NuBubble[x_] = X . Inverse[A]\)], "Input",
+  PageWidth->Infinity,
+  CellMargins->{{18, Inherited}, {Inherited, Inherited}}],
+
+Cell[BoxData[
+    \(NuBubble[x] . {u1, u2, u3}\)], "Input",
+  PageWidth->Infinity],
+
+Cell[BoxData[
+    \(CoefficientList[\((NuBubble[x] . {u1, u2, u3})\), x]\)], "Input",
+  PageWidth->Infinity],
+
+Cell[BoxData[
+    \(Nu[x_] = {1 - x/L, x/L, \(NuBubble[x]\)[\([3]\)]}\)], "Input",
+  PageWidth->Infinity,
+  CellMargins->{{18, Inherited}, {Inherited, Inherited}}],
+
+Cell[BoxData[
+    \(CoefficientList[\((Nu[x] . {u1, u2, u3})\), x]\)], "Input",
+  PageWidth->Infinity],
+
+Cell[BoxData[
+    \(NuBubble[x]\)], "Input",
+  PageWidth->Infinity],
+
+Cell[BoxData[
+    \(Nu[x] // TraditionalForm\)], "Input",
+  PageWidth->Infinity],
+
+Cell[BoxData[
+    \(hu[r_] = Nu[x[r]] // Simplify\)], "Input",
+  PageWidth->Infinity,
+  CellMargins->{{18, Inherited}, {Inherited, Inherited}}]
+}, Closed]],
+
+Cell[CellGroupData[{
+
+Cell["MATRIZ DERIVADA - Bu(x)", "Subsubsection",
+  PageWidth->Infinity,
+  CellMargins->{{18, Inherited}, {Inherited, Inherited}}],
+
+Cell[BoxData[{
+    \(Clear[Bu, bu]\), "\n", 
+    \(Bu[x_] = D[Nu[x], x] // Simplify\)}], "Input",
+  PageWidth->Infinity,
+  CellMargins->{{18, Inherited}, {Inherited, Inherited}}],
+
+Cell[BoxData[
+    \(bu[r_] = Transpose[{Bu[x[r]]}]\n // FullSimplify\)], "Input",
+  PageWidth->Infinity,
+  CellMargins->{{18, Inherited}, {Inherited, Inherited}}],
+
+Cell[BoxData[
+    \(Clear[p, X, a, A, V, EQ1, EQ2, EQ3, EQ4]\)], "Input",
+  PageWidth->Infinity,
+  CellMargins->{{18, Inherited}, {Inherited, Inherited}}]
+}, Closed]],
+
+Cell[CellGroupData[{
+
+Cell["FUNCIONES DE FORMA - \[Theta](x)", "Subsubsection",
+  PageWidth->Infinity,
+  CellMargins->{{18, Inherited}, {Inherited, Inherited}}],
+
+Cell[BoxData[
+    \(N\[Theta][
+        x_] = \(\(D[Nw[x], x]\)\(//\)\(FullSimplify\)\(\t\)\)\)], "Input",
+  PageWidth->Infinity,
+  CellMargins->{{18, Inherited}, {Inherited, Inherited}}],
+
+Cell[BoxData[
+    \(h\[Theta][r_] = Transpose[{N\[Theta][x[r]]}] // FullSimplify\)], "Input",\
+
+  PageWidth->Infinity,
+  CellMargins->{{18, Inherited}, {Inherited, Inherited}}]
+}, Closed]],
+
+Cell[CellGroupData[{
+
+Cell["MATRIZ DERIVADA - B\[Theta](x)", "Subsubsection",
+  PageWidth->Infinity,
+  CellMargins->{{18, Inherited}, {Inherited, Inherited}}],
+
+Cell[BoxData[{
+    \(Clear[B\[Theta], b\[Theta]]\), "\n", 
+    \(B\[Theta][x_] = D[N\[Theta][x], x] // Simplify\)}], "Input",
+  PageWidth->Infinity,
+  CellMargins->{{18, Inherited}, {Inherited, Inherited}}],
+
+Cell[BoxData[
+    \(b\[Theta][r_] = 
+      Transpose[{B\[Theta][x[r]]}]\n // FullSimplify\)], "Input",
+  PageWidth->Infinity,
+  CellMargins->{{18, Inherited}, {Inherited, Inherited}}]
+}, Closed]],
+
+Cell[CellGroupData[{
+
+Cell["FUNCIONES DE FORMA - \[Kappa](x)", "Subsubsection",
+  PageWidth->Infinity,
+  CellMargins->{{18, Inherited}, {Inherited, Inherited}}],
+
+Cell[BoxData[
+    \(Clear[N\[Kappa], h\[Kappa], r]\)], "Input",
+  PageWidth->Infinity,
+  CellMargins->{{18, Inherited}, {Inherited, Inherited}}],
+
+Cell[BoxData[
+    \(N\[Kappa][x_] = D[N\[Theta][x], x] // FullSimplify\)], "Input",
+  PageWidth->Infinity,
+  CellMargins->{{18, Inherited}, {Inherited, Inherited}}],
+
+Cell[BoxData[
+    \(h\[Kappa][r_] = Transpose[{N\[Kappa][x[r]]}] // FullSimplify\)], "Input",\
+
+  PageWidth->Infinity,
+  CellMargins->{{18, Inherited}, {Inherited, Inherited}}],
+
+Cell["\<\
+La curvatura no tiene grados de Libertad asociados, por lo que no pertenece a \
+la matriz de Interpolaci\[OAcute]n H(x)\
+\>", "Text",
+  PageWidth->Infinity,
+  CellMargins->{{18, Inherited}, {Inherited, Inherited}}]
+}, Closed]],
+
+Cell[CellGroupData[{
+
+Cell["MATRIZ DERIVADA - B\[Kappa](x)", "Subsubsection",
+  PageWidth->Infinity,
+  CellMargins->{{18, Inherited}, {Inherited, Inherited}}],
+
+Cell[BoxData[{
+    \(Clear[B\[Kappa], b\[Kappa], r]\), "\n", 
+    \(B\[Kappa][x_] = D[N\[Kappa][x], x] // Simplify\)}], "Input",
+  PageWidth->Infinity,
+  CellMargins->{{18, Inherited}, {Inherited, Inherited}}],
+
+Cell[BoxData[
+    \(b\[Kappa][r_] = 
+      Transpose[{B\[Kappa][x[r]]}]\n // FullSimplify\)], "Input",
+  PageWidth->Infinity,
+  CellMargins->{{18, Inherited}, {Inherited, Inherited}}]
+}, Closed]],
+
+Cell[CellGroupData[{
+
+Cell["RESUMEN", "Subsubsection",
+  PageWidth->Infinity,
+  FontColor->RGBColor[0, 0.500008, 0.500008]],
+
+Cell[BoxData[{
+    \(\(hw = {{\((2 - 3*r + r^3)\)/4}, {\((2 + 3*r - r^3)\)/
+              4}, {\((L*\((\(-1\) + r)\)^2*\((1 + r)\))\)/
+              8}, {\((L*\((\(-1\) + r)\)*\((1 + r)\)^2)\)/
+              8}};\)\), "\[IndentingNewLine]", 
+    \(\(bw = {{\((3*\((\(-1\) + r^2)\))\)/\((2*
+                  L)\)}, {\((\(-3\)*\((\(-1\) + r^2)\))\)/\((2*
+                  L)\)}, {\((\((\(-1\) + r)\)*\((1 + 3*r)\))\)/
+              4}, {\((\((1 + r)\)*\((\(-1\) + 3*r)\))\)/
+              4}};\)\), "\[IndentingNewLine]", 
+    \(\(b\[Theta] = \ {{\((6*r)\)/L^2}, {\((\(-6\)*r)\)/
+              L^2}, {\((\(-1\) + 3*r)\)/L}, {\((1 + 3*r)\)/
+              L}};\)\), "\[IndentingNewLine]", 
+    \(\(h\[Gamma] = {{0}, {0}, {0}, {0}};\)\), "\[IndentingNewLine]", 
+    \(\(hw\[CapitalDelta]u3 = {{0}};\)\), "\[IndentingNewLine]", 
+    \(\(bw\[CapitalDelta]u3 = {{0}};\)\), "\[IndentingNewLine]", 
+    \(\(b\[Theta]\[CapitalDelta]u3 = {{0}};\)\), "\[IndentingNewLine]", 
+    \(\(h\[Gamma]\[CapitalDelta]u3 = {{0}};\)\)}], "Input"],
+
+Cell[BoxData[
+    \(hw[r]\)], "Input",
+  PageWidth->Infinity,
+  FontColor->RGBColor[0, 0.500008, 0.500008]],
+
+Cell[BoxData[
+    \(bw[r]\)], "Input",
+  PageWidth->Infinity,
+  FontColor->RGBColor[0, 0.500008, 0.500008]],
+
+Cell[BoxData[
+    \(h\[Gamma][r]\)], "Input",
+  PageWidth->Infinity,
+  FontColor->RGBColor[0, 0.500008, 0.500008]],
+
+Cell[BoxData[
+    \(b\[Gamma][r]\)], "Input",
+  PageWidth->Infinity,
+  FontColor->RGBColor[0, 0.500008, 0.500008]],
+
+Cell[BoxData[
+    \(h\[Theta][r]\)], "Input",
+  PageWidth->Infinity,
+  FontColor->RGBColor[0, 0.500008, 0.500008]],
+
+Cell[BoxData[
+    \(b\[Theta][r]\)], "Input",
+  PageWidth->Infinity,
+  FontColor->RGBColor[0, 0.500008, 0.500008]],
+
+Cell[BoxData[
+    \(h\[Kappa][r]\)], "Input",
+  PageWidth->Infinity,
+  FontColor->RGBColor[0, 0.500008, 0.500008]],
+
+Cell[BoxData[
+    \(b\[Kappa][r]\)], "Input",
+  PageWidth->Infinity,
+  FontColor->RGBColor[0, 0.500008, 0.500008]]
+}, Closed]]
+}, Closed]],
+
+Cell[CellGroupData[{
+
+Cell["INTERPOLACION MODIFICADA POR CORTE LINEALIZADO", "Subsection",
+  PageWidth->Infinity],
+
+Cell[CellGroupData[{
+
+Cell["FUNCIONES DE FORMA - Hw(x),NuBubble(x),Hu(x)", "Subsubsection",
+  PageWidth->Infinity],
+
+Cell[BoxData[
+    \(\(Clear[b0, b1, b2, b3, a0, a1, a2];\)\)], "Input",
+  PageWidth->Infinity],
+
+Cell[BoxData[{
+    \(\(Clear[a, u, X];\)\), "\[IndentingNewLine]", 
+    \(\(X := {1, x, x^2};\)\), "\n", 
+    \(\(a := {a0, a1, a2};\)\), "\n", 
+    \(u[x_] = X . a\)}], "Input",
+  PageWidth->Infinity],
+
+Cell[BoxData[{
+    \(\(Clear[b, w, X];\)\), "\[IndentingNewLine]", 
+    \(\(X := {1, x, x^2, x^3};\)\), "\n", 
+    \(\(b := {b0, b1, b2, b3};\)\), "\n", 
+    \(w[x_] = X . b\)}], "Input",
+  PageWidth->Infinity],
+
+Cell[BoxData[{
+    \(\(Clear[g0];\)\), "\[IndentingNewLine]", 
+    \(g0 = \((EX*2*a2 - EJ*6*b3)\)/GA\)}], "Input",
+  PageWidth->Infinity],
+
+Cell[BoxData[
+    \( (*CURVATURA\ CORREGIDA*) \)], "Input",
+  PageWidth->Infinity],
+
+Cell[BoxData[{
+    \(\(EQ4 = w[0] == w1;\)\), "\[IndentingNewLine]", 
+    \(\(EQ5 = w[L] == w2;\)\), "\[IndentingNewLine]", 
+    \(\(EQ6 = \(w'\)[0] + g0 == \[Theta]1;\)\), "\[IndentingNewLine]", 
+    \(\(EQ7 = \(w'\)[L] + g0 == \[Theta]2;\)\), "\[IndentingNewLine]", 
+    \(\(EQ1 = u[0] \[Equal] 0;\)\), "\[IndentingNewLine]", 
+    \(\(EQ2 = u[L] \[Equal] 0;\)\), "\[IndentingNewLine]", 
+    \(\(EQ3 = u[L/2] \[Equal] \[CapitalDelta]u3;\)\)}], "Input",
+  PageWidth->Infinity],
+
+Cell[BoxData[{
+    \(\(Clear[A, V];\)\), "\n", 
+    \(\({A, V} = 
+        LinearEquationsToMatrices[{EQ1, EQ2, EQ3, EQ4, EQ5, EQ6, EQ7}, 
+          Union[b, a]];\)\), "\[IndentingNewLine]", 
+    \(\(A // MatrixForm\) // TraditionalForm\)}], "Input",
+  PageWidth->Infinity,
+  CellMargins->{{18, Inherited}, {Inherited, Inherited}}],
+
+Cell[BoxData[
+    \(V\)], "Input",
+  PageWidth->Infinity],
+
+Cell[BoxData[
+    \(\(Inverse[A] // FullSimplify\) // MatrixForm\)], "Input",
+  PageWidth->Infinity],
+
+Cell[BoxData[
+    \(\(Clear[a0, a1, a2, b0, b1, b2, b3];\)\)], "Input",
+  PageWidth->Infinity],
+
+Cell[BoxData[
+    \(w[x]\)], "Input",
+  PageWidth->Infinity],
+
+Cell[BoxData[
+    \(g0 // FullSimplify\)], "Input",
+  PageWidth->Infinity],
+
+Cell[BoxData[
+    \(u[x]\)], "Input",
+  PageWidth->Infinity],
+
+Cell[BoxData[{
+    \(\({a0, a1, a2, b0, b1, b2, b3} = 
+        Inverse[A] . V;\)\), "\[IndentingNewLine]", 
+    \(\({a0, a1, a2, b0, b1, b2, b3} // MatrixForm\) // 
+      FullSimplify\)}], "Input",
+  PageWidth->Infinity],
+
+Cell[BoxData[
+    \(u[x] // FullSimplify\)], "Input",
+  PageWidth->Infinity],
+
+Cell[BoxData[
+    \(w[x] // FullSimplify\)], "Input",
+  PageWidth->Infinity],
+
+Cell[BoxData[
+    \(u[x] // FullSimplify\)], "Input",
+  PageWidth->Infinity],
+
+Cell[BoxData[
+    \(Clear[Nw]; 
+    Nw[x_] = {\(CoefficientList[w[x], w1]\)[\([2]\)], \(CoefficientList[w[x], 
+              w2]\)[\([2]\)], \[IndentingNewLine]\(CoefficientList[
+              w[x], \[Theta]1]\)[\([2]\)], \(CoefficientList[
+              w[x], \[Theta]2]\)[\([2]\)], \
+\[IndentingNewLine]\(CoefficientList[w[x], \[CapitalDelta]u3]\)[\([2]\)]} // 
+        Simplify\)], "Input",
+  PageWidth->Infinity],
+
+Cell[BoxData[
+    \(u[x] // FullSimplify\)], "Input",
+  PageWidth->Infinity],
+
+Cell[BoxData[{
+    \(\(Clear[NuBubble];\)\), "\[IndentingNewLine]", 
+    \(NuBubble[x] = {\(CoefficientList[u[x], \[CapitalDelta]u3]\)[\([2]\)]} // 
+        Simplify\)}], "Input",
+  PageWidth->Infinity],
+
+Cell[BoxData[
+    \(Nu[x_] = {1 - x/L, x/L, \(NuBubble[x]\)[\([1]\)]} // 
+        FullSimplify\)], "Input",
+  PageWidth->Infinity,
+  CellMargins->{{18, Inherited}, {Inherited, Inherited}}],
+
+Cell[BoxData[
+    \(Nu[x] /. {EX[0] \[Rule] 0, EX[L] \[Rule] 0}\  // 
+      FullSimplify\)], "Input",
+  PageWidth->Infinity],
+
+Cell[BoxData[
+    \(w[x] // FullSimplify\)], "Input",
+  PageWidth->Infinity],
+
+Cell[BoxData[
+    \(Nw[x] /. {EX \[Rule] 0}\  // FullSimplify\)], "Input",
+  PageWidth->Infinity],
+
+Cell[BoxData[
+    \(Nw[x] . {w1, w2, \[Theta]1, \[Theta]2, \[CapitalDelta]u3}\)], "Input",
+  PageWidth->Infinity],
+
+Cell[BoxData[
+    \(hw[r_] = Transpose[{Nw[x[r]]}]\n // FullSimplify\)], "Input",
+  PageWidth->Infinity],
+
+Cell[BoxData[
+    \(hw[r]*\((\(-12\)\ EJ + GA\ L\^2)\) // FullSimplify\)], "Input",
+  PageWidth->Infinity],
+
+Cell[BoxData[
+    \(8*12\)], "Input",
+  PageWidth->Infinity]
+}, Closed]],
+
+Cell[CellGroupData[{
+
+Cell["MATRIZ DERIVADA - Bw(x)", "Subsubsection",
+  PageWidth->Infinity,
+  CellMargins->{{18, Inherited}, {Inherited, Inherited}}],
+
+Cell[BoxData[{
+    \(Clear[Bw, bw]\), "\n", 
+    \(Bw[x_] = D[Nw[x], x] // FullSimplify\)}], "Input",
+  PageWidth->Infinity,
+  CellMargins->{{18, Inherited}, {Inherited, Inherited}}],
+
+Cell[BoxData[
+    \(bw[r_] = Transpose[{Bw[x[r]]}]\n // FullSimplify\)], "Input",
+  PageWidth->Infinity,
+  CellMargins->{{18, Inherited}, {Inherited, Inherited}}]
+}, Closed]],
+
+Cell[CellGroupData[{
+
+Cell["MATRIZ DERIVADA - Bu(x)", "Subsubsection",
+  PageWidth->Infinity,
+  CellMargins->{{18, Inherited}, {Inherited, Inherited}}],
+
+Cell[BoxData[{
+    \(Clear[Bu, bu]\), "\n", 
+    \(Bu[x_] = D[Nu[x], x] // FullSimplify\)}], "Input",
+  PageWidth->Infinity,
+  CellMargins->{{18, Inherited}, {Inherited, Inherited}}],
+
+Cell[BoxData[
+    \(bu[r_] = Transpose[{Bu[x[r]]}]\n // FullSimplify\)], "Input",
+  PageWidth->Infinity,
+  CellMargins->{{18, Inherited}, {Inherited, Inherited}}],
+
+Cell[BoxData[
+    \(Clear[u, u1, u2, \[CapitalDelta]u3]; 
+    u = {{u1}, {u2}, {\[CapitalDelta]u3}}\)], "Input",
+  PageWidth->Infinity],
+
+Cell[BoxData[
+    \(\((Transpose[bu[0]] . u)\)[\([1, 1]\)]\)], "Input",
+  PageWidth->Infinity]
+}, Closed]],
+
+Cell[CellGroupData[{
+
+Cell["FUNCIONES DE FORMA - H\[Gamma](x)", "Subsubsection",
+  PageWidth->Infinity,
+  CellMargins->{{18, Inherited}, {Inherited, Inherited}}],
+
+Cell[BoxData[
+    \(Clear[N\[Gamma], h\[Gamma], r]\)], "Input",
+  PageWidth->Infinity,
+  CellMargins->{{18, Inherited}, {Inherited, Inherited}}],
+
+Cell[BoxData[
+    \(g0 // FullSimplify\)], "Input",
+  PageWidth->Infinity],
+
+Cell["\<\
+Esta expresi\[OAcute]n de la constante g0, deber\[AAcute] ser descompuesta en \
+t\[EAcute]rminos de los desplazamientos nodales independientes.\
+\>", "Text",
+  PageWidth->Infinity],
+
+Cell[BoxData[
+    \(N\[Gamma][
+        x_] = {\(CoefficientList[g0, w1]\)[\([2]\)], \(CoefficientList[g0, 
+              w2]\)[\([2]\)], \(CoefficientList[
+              g0, \[Theta]1]\)[\([2]\)], \(CoefficientList[
+              g0, \[Theta]2]\)[\([2]\)], \(CoefficientList[
+              g0, \[CapitalDelta]u3]\)[\([2]\)]} // FullSimplify\)], "Input",
+  PageWidth->Infinity],
+
+Cell[BoxData[
+    \(h\[Gamma][r_] = Transpose[{N\[Gamma][x[r]]}]\)], "Input",
+  PageWidth->Infinity],
+
+Cell[BoxData[
+    \(N\[Gamma][x] /. EX \[Rule] 0\  // FullSimplify\)], "Input",
+  PageWidth->Infinity],
+
+Cell["\<\
+Se ve claramente como desaparece el acoplamieno entre \[Gamma] y \
+\[CapitalDelta]u3 con EX=0\
+\>", "Text",
+  PageWidth->Infinity]
+}, Closed]],
+
+Cell[CellGroupData[{
+
+Cell["MATRIZ DERIVADA - B\[Gamma](x)", "Subsubsection",
+  PageWidth->Infinity,
+  CellMargins->{{18, Inherited}, {Inherited, Inherited}}],
+
+Cell[BoxData[{
+    \(Clear[B\[Gamma], b\[Gamma]]\), "\n", 
+    \(B\[Gamma][x_] = D[N\[Gamma][x], x] // Simplify\)}], "Input",
+  PageWidth->Infinity,
+  CellMargins->{{18, Inherited}, {Inherited, Inherited}}],
+
+Cell[BoxData[
+    \(b\[Gamma][r_] = 
+      Transpose[{B\[Gamma][x[r]]}]\n // FullSimplify\)], "Input",
+  PageWidth->Infinity,
+  CellMargins->{{18, Inherited}, {Inherited, Inherited}}],
+
+Cell["\<\
+La interpolaci\[OAcute]n del giro debido al corte es constante a lo largo del \
+elemento\
+\>", "Text",
+  PageWidth->Infinity,
+  CellMargins->{{18, Inherited}, {Inherited, Inherited}}]
+}, Closed]],
+
+Cell[CellGroupData[{
+
+Cell["FUNCIONES DE FORMA - H\[Theta](x)", "Subsubsection",
+  PageWidth->Infinity,
+  CellMargins->{{18, Inherited}, {Inherited, Inherited}}],
+
+Cell[BoxData[
+    \(Clear[N\[Theta], h\[Theta]]\)], "Input",
+  PageWidth->Infinity],
+
+Cell[BoxData[
+    \(N\[Theta][x_] = Bw[x] - N\[Gamma][x] // FullSimplify\)], "Input",
+  PageWidth->Infinity],
+
+Cell[BoxData[
+    \(h\[Theta][r_] = Transpose[{N\[Theta][x[r]]}] // FullSimplify\)], "Input",\
+
+  PageWidth->Infinity,
+  CellMargins->{{18, Inherited}, {Inherited, Inherited}}],
+
+Cell[BoxData[
+    \(bw[r] - h\[Gamma][r] // FullSimplify\)], "Input",
+  PageWidth->Infinity]
+}, Closed]],
+
+Cell[CellGroupData[{
+
+Cell["MATRIZ DERIVADA - B\[Theta](x)", "Subsubsection",
+  PageWidth->Infinity,
+  CellMargins->{{18, Inherited}, {Inherited, Inherited}}],
+
+Cell[BoxData[{
+    \(Clear[B\[Theta], b\[Theta]]\), "\n", 
+    \(B\[Theta][x_] = D[N\[Theta][x], x] // FullSimplify\)}], "Input",
+  PageWidth->Infinity,
+  CellMargins->{{18, Inherited}, {Inherited, Inherited}}],
+
+Cell[BoxData[
+    \(b\[Theta][r_] = 
+      Transpose[{B\[Theta][x[r]]}]\n // FullSimplify\)], "Input",
+  PageWidth->Infinity,
+  CellMargins->{{18, Inherited}, {Inherited, Inherited}}]
+}, Closed]],
+
+Cell[CellGroupData[{
+
+Cell["FUNCIONES DE FORMA - H\[Kappa](x)", "Subsubsection",
+  PageWidth->Infinity,
+  CellMargins->{{18, Inherited}, {Inherited, Inherited}}],
+
+Cell[BoxData[
+    \(Clear[N\[Kappa], h\[Kappa], r]\)], "Input",
+  PageWidth->Infinity,
+  CellMargins->{{18, Inherited}, {Inherited, Inherited}}],
+
+Cell[BoxData[
+    \(N\[Kappa][x_] = D[N\[Theta][x], x] // FullSimplify\)], "Input",
+  PageWidth->Infinity,
+  CellMargins->{{18, Inherited}, {Inherited, Inherited}}],
+
+Cell[BoxData[
+    \(h\[Kappa][r_] = Transpose[{N\[Kappa][x[r]]}] // FullSimplify\)], "Input",\
+
+  PageWidth->Infinity,
+  CellMargins->{{18, Inherited}, {Inherited, Inherited}}],
+
+Cell["\<\
+La curvatura no tiene grados de Libertad asociados, por lo que no pertenece a \
+la matriz de Interpolaci\[OAcute]n H(x)\
+\>", "Text",
+  PageWidth->Infinity,
+  CellMargins->{{18, Inherited}, {Inherited, Inherited}}]
+}, Closed]],
+
+Cell[CellGroupData[{
+
+Cell["MATRIZ DERIVADA - B\[Kappa](x)", "Subsubsection",
+  PageWidth->Infinity,
+  CellMargins->{{18, Inherited}, {Inherited, Inherited}}],
+
+Cell[BoxData[{
+    \(Clear[B\[Kappa], b\[Kappa], r]\), "\n", 
+    \(B\[Kappa][x_] = D[N\[Kappa][x], x] // Simplify\)}], "Input",
+  PageWidth->Infinity,
+  CellMargins->{{18, Inherited}, {Inherited, Inherited}}],
+
+Cell[BoxData[
+    \(b\[Kappa][r_] = 
+      Transpose[{B\[Kappa][x[r]]}]\n // FullSimplify\)], "Input",
+  PageWidth->Infinity,
+  CellMargins->{{18, Inherited}, {Inherited, Inherited}}]
+}, Closed]],
+
+Cell[CellGroupData[{
+
+Cell[BoxData[
+    \(RESUMEN\)], "Subsubsection",
+  PageWidth->Infinity,
+  FontColor->RGBColor[0.500008, 0, 0.996109]],
+
+Cell[BoxData[
+    \({b0, b1, b2, b3} // FullSimplify\)], "Input"],
+
+Cell[BoxData[
+    \(Nw[x]\)], "Input"],
+
+Cell[BoxData[{
+    \(\(hw = {{\(-\((\((\((\(-1\) + r)\)*\((24*EJ + 
+                          GA*L^2*\((\(-2\) + r + r^2)\))\))\)/\((48*EJ - 
+                      4*GA*L^2)\))\)\)}, {\((\((1 + r)\)*\((24*EJ + 
+                      GA*L^2*\((\(-2\) + r)\)*\((1 + r)\))\))\)/\((48*EJ - 
+                  4*GA*L^2)\)}, {\((L*\((12*EJ + 
+                      GA*L^2*\((\(-1\) + r)\))\)*\((\(-1\) + r)\)*\((1 + 
+                      r)\))\)/\((8*\((\(-12\)*EJ + 
+                      GA*L^2)\))\)}, {\((L*\((\(-1\) + r)\)*\((1 + 
+                      r)\)*\((\(-12\)*EJ + 
+                      GA*L^2*\((1 + r)\))\))\)/\((8*\((\(-12\)*EJ + 
+                      GA*L^2)\))\)}};\)\[IndentingNewLine]\), "\
+\[IndentingNewLine]", 
+    \(\(bw = {{\((\(-24\)*EJ - 3*GA*L^2*\((\(-1\) + r^2)\))\)/\((24*EJ*L - 
+                  2*GA*L^3)\)}, {\((24*EJ + 
+                  3*GA*L^2*\((\(-1\) + r^2)\))\)/\((24*EJ*L - 
+                  2*GA*L^3)\)}, {\((\(-24\)*EJ*r + 
+                  GA*L^2*\((1 + \((2 - 3*r)\)*r)\))\)/\((48*EJ - 
+                  4*GA*L^2)\)}, {\((24*EJ*r - 
+                  GA*L^2*\((1 + r)\)*\((\(-1\) + 3*r)\))\)/\((48*EJ - 
+                  4*GA*L^2)\)}};\)\[IndentingNewLine]\), \
+"\[IndentingNewLine]", 
+    \(\(b\[Theta] = {{\((6*GA*r)\)/\((\(-12\)*EJ + GA*L^2)\)}, {\((6*GA*
+                  r)\)/\((12*EJ - 
+                  GA*L^2)\)}, {\(-\((1/L)\)\) + \((3*GA*L*
+                    r)\)/\((\(-12\)*EJ + GA*L^2)\)}, {1/
+                L + \((3*GA*L*r)\)/\((\(-12\)*EJ + 
+                    GA*L^2)\)}};\)\[IndentingNewLine]\), \
+"\[IndentingNewLine]", 
+    \(\(h\[Gamma] = {{\((12*EJ)\)/\((12*EJ*L - GA*L^3)\)}, {\((12*
+                  EJ)\)/\((\(-12\)*EJ*L + GA*L^3)\)}, {\((6*EJ)\)/\((12*EJ - 
+                  GA*L^2)\)}, {\((6*EJ)\)/\((12*EJ - 
+                  GA*L^2)\)}};\)\[IndentingNewLine]\), "\[IndentingNewLine]", \
+
+    \(\(hw\[CapitalDelta]u3 = {{\((2*EX*L*
+                  r*\((\(-1\) + r^2)\))\)/\((\(-12\)*EJ + 
+                  GA*L^2)\)}};\)\), "\[IndentingNewLine]", 
+    \(\(bw\[CapitalDelta]u3 = {{\(-\((\((4*
+                      EX*\((\(-1\) + 3*r^2)\))\)/\((12*EJ - 
+                      GA*L^2)\))\)\)}};\)\), "\[IndentingNewLine]", 
+    \(\(b\[Theta]\[CapitalDelta]u3 = {{\((48*EX*r)\)/\((\(-12\)*EJ*L + 
+                  GA*L^3)\)}};\)\), "\[IndentingNewLine]", 
+    \(\(h\[Gamma]\[CapitalDelta]u3 = {{\((8*EX)\)/\((12*EJ - 
+                  GA*L^2)\)}};\)\)}], "Input"],
+
+Cell[BoxData[
+    \(hw[r]\)], "Input",
+  PageWidth->Infinity,
+  FontColor->RGBColor[0.500008, 0, 0.996109]],
+
+Cell[BoxData[
+    \(bw[r]\)], "Input",
+  PageWidth->Infinity,
+  FontColor->RGBColor[0.500008, 0, 0.996109]],
+
+Cell[BoxData[
+    \(h\[Gamma][r]\)], "Input",
+  PageWidth->Infinity,
+  FontColor->RGBColor[0.500008, 0, 0.996109]],
+
+Cell[BoxData[
+    \(b\[Gamma][r]\)], "Input",
+  PageWidth->Infinity,
+  FontColor->RGBColor[0.500008, 0, 0.996109]],
+
+Cell[BoxData[
+    \(h\[Theta][r]\)], "Input",
+  PageWidth->Infinity,
+  FontColor->RGBColor[0.500008, 0, 0.996109]],
+
+Cell[BoxData[
+    \(b\[Theta][r]\)], "Input",
+  PageWidth->Infinity,
+  FontColor->RGBColor[0.500008, 0, 0.996109]]
+}, Open  ]]
+}, Open  ]],
+
+Cell[CellGroupData[{
+
+Cell["\<\
+GETSHAPE: 
+EVALUAR FUNCIONES DE FORMA. \
+\>", "Subsection",
+  PageWidth->WindowWidth,
+  FontColor->RGBColor[0, 0.500008, 0.996109]],
+
+Cell[BoxData[{
+    \(\(Clear[
+        GETSHAPE];\)\[IndentingNewLine] (*\(\(**\)\(**\)\) **  **  **  **  **  \
+**  **  **  **  **  ** *****) \[IndentingNewLine] (*\ 
+      EVALUAR\ FUNCIONES\ DE\ FORMA\ \ \ *) \[IndentingNewLine] (*\ 
+      VERSION : \ \(05/12\)/
+          2003\ \ \ \ \ \ \ \ \ \ *) \[IndentingNewLine] (********************************) \
+\), "\[IndentingNewLine]", 
+    \(GETSHAPE[{r_, L_}, {EA_, EX_, EJ_, GA_}, 
+        Opciones___] := \[IndentingNewLine]Module[{Shear, bu, 
+          bu\[CapitalDelta]u3, bw, bw\[CapitalDelta]u3, b\[Theta], 
+          b\[Theta]\[CapitalDelta]u3, hu, hu\[CapitalDelta]u3, hw, 
+          hw\[CapitalDelta]u3, h\[Theta], h\[Theta]\[CapitalDelta]u3, 
+          h\[Gamma], h\[Gamma]\[CapitalDelta]u3, h\[Chi], 
+          h\[Chi]\[CapitalDelta]u3}, \[IndentingNewLine]Options[
+            GETSHAPE] = \ {ShearInterpolation -> 
+              False}; \[IndentingNewLine]Shear = \ \(ShearInterpolation\  \
+/. \ {Opciones}\)\  /. 
+            Options[GETSHAPE]; \[IndentingNewLine]bu = {{\(-\((1/
+                    L)\)\)}, {\((1/
+                  L)\)}}; \[IndentingNewLine]bu\[CapitalDelta]u3 = {{\(-4\)\ \
+r/L}}; \[IndentingNewLine]hu = {{\((1 - r)\)/2}, {\((1 + r)\)/
+                2}}; \[IndentingNewLine]hu\[CapitalDelta]u3 = {{1 - 
+                r^2}}; \[IndentingNewLine]If[
+          Shear, \[IndentingNewLine]hw = {{\(-\((\((\((\(-1\) + 
+                              r)\)*\((24*EJ + 
+                              GA*L^2*\((\(-2\) + r + r^2)\))\))\)/\((48*EJ - 
+                          4*GA*L^2)\))\)\)}, {\((\((1 + r)\)*\((24*EJ + 
+                          GA*L^2*\((\(-2\) + r)\)*\((1 + r)\))\))\)/\((48*
+                        EJ - 4*GA*
+                        L^2)\)}, {\((L*\((12*EJ + 
+                          GA*L^2*\((\(-1\) + r)\))\)*\((\(-1\) + r)\)*\((1 + 
+                          r)\))\)/\((8*\((\(-12\)*EJ + 
+                          GA*L^2)\))\)}, {\((L*\((\(-1\) + r)\)*\((1 + 
+                          r)\)*\((\(-12\)*EJ + 
+                          GA*L^2*\((1 + r)\))\))\)/\((8*\((\(-12\)*EJ + 
+                          GA*L^2)\))\)}}; \[IndentingNewLine]\
+\[IndentingNewLine]bw = {{\((\(-24\)*EJ - 
+                      3*GA*L^2*\((\(-1\) + r^2)\))\)/\((24*EJ*L - 
+                      2*GA*L^3)\)}, {\((24*EJ + 
+                      3*GA*L^2*\((\(-1\) + r^2)\))\)/\((24*EJ*L - 
+                      2*GA*L^3)\)}, {\((\(-24\)*EJ*r + 
+                      GA*L^2*\((1 + \((2 - 3*r)\)*r)\))\)/\((48*EJ - 
+                      4*GA*L^2)\)}, {\((24*EJ*r - 
+                      GA*L^2*\((1 + r)\)*\((\(-1\) + 3*r)\))\)/\((48*EJ - 
+                      4*GA*
+                        L^2)\)}}; \[IndentingNewLine]\[IndentingNewLine]b\
+\[Theta] = {{\((6*GA*r)\)/\((\(-12\)*EJ + GA*L^2)\)}, {\((6*GA*
+                      r)\)/\((12*EJ - 
+                      GA*L^2)\)}, {\(-\((1/L)\)\) + \((3*GA*L*
+                        r)\)/\((\(-12\)*EJ + GA*L^2)\)}, {1/
+                    L + \((3*GA*L*r)\)/\((\(-12\)*EJ + 
+                        GA*L^2)\)}}; \[IndentingNewLine]\[IndentingNewLine]h\
+\[Gamma] = {{\((12*EJ)\)/\((12*EJ*L - GA*L^3)\)}, {\((12*
+                      EJ)\)/\((\(-12\)*EJ*L + GA*L^3)\)}, {\((6*
+                      EJ)\)/\((12*EJ - GA*L^2)\)}, {\((6*EJ)\)/\((12*EJ - 
+                      GA*L^2)\)}}; \[IndentingNewLine]\[IndentingNewLine]hw\
+\[CapitalDelta]u3 = {{\((2*EX*L*r*\((\(-1\) + r^2)\))\)/\((\(-12\)*EJ + 
+                      GA*L^2)\)}}; \[IndentingNewLine]bw\[CapitalDelta]u3 = \
+{{\(-\((\((4*EX*\((\(-1\) + 3*r^2)\))\)/\((12*EJ - 
+                          GA*L^2)\))\)\)}}; \[IndentingNewLine]b\[Theta]\
+\[CapitalDelta]u3 = {{\((48*EX*r)\)/\((\(-12\)*EJ*L + 
+                      GA*L^3)\)}}; \
+\[IndentingNewLine]h\[Gamma]\[CapitalDelta]u3 = {{\((8*EX)\)/\((12*EJ - 
+                      GA*L^2)\)}};\[IndentingNewLine], \[IndentingNewLine]hw \
+= {{\((2 - 3*r + r^3)\)/4}, {\((2 + 3*r - r^3)\)/
+                  4}, {\((L*\((\(-1\) + r)\)^2*\((1 + r)\))\)/
+                  8}, {\((L*\((\(-1\) + r)\)*\((1 + r)\)^2)\)/
+                  8}}; \[IndentingNewLine]bw = {{\((3*\((\(-1\) + 
+                          r^2)\))\)/\((2*
+                      L)\)}, {\((\(-3\)*\((\(-1\) + r^2)\))\)/\((2*
+                      L)\)}, {\((\((\(-1\) + r)\)*\((1 + 3*r)\))\)/
+                  4}, {\((\((1 + r)\)*\((\(-1\) + 3*r)\))\)/
+                  4}}; \[IndentingNewLine]b\[Theta] = \ {{\((6*r)\)/
+                  L^2}, {\((\(-6\)*r)\)/L^2}, {\((\(-1\) + 3*r)\)/
+                  L}, {\((1 + 3*r)\)/
+                  L}}; \[IndentingNewLine]h\[Gamma] = {{0}, {0}, {0}, {0}}; \
+\[IndentingNewLine]hw\[CapitalDelta]u3 = {{0}}; \[IndentingNewLine]bw\
+\[CapitalDelta]u3 = {{0}}; \[IndentingNewLine]b\[Theta]\[CapitalDelta]u3 = \
+{{0}}; \[IndentingNewLine]h\[Gamma]\[CapitalDelta]u3 = {{0}};\
+\[IndentingNewLine]]; \[IndentingNewLine]h\[Theta] = 
+          bw - h\[Gamma]; \[IndentingNewLine]h\[Theta]\[CapitalDelta]u3 = 
+          bw\[CapitalDelta]u3 - 
+            h\[Gamma]\[CapitalDelta]u3; \[IndentingNewLine]h\[Chi] = 
+          b\[Theta]; \[IndentingNewLine]h\[Chi]\[CapitalDelta]u3 = 
+          b\[Theta]\[CapitalDelta]u3; \[IndentingNewLine]Return[{{bu, 
+              bu\[CapitalDelta]u3, bw, bw\[CapitalDelta]u3, b\[Theta], 
+              b\[Theta]\[CapitalDelta]u3}, {hu, hu\[CapitalDelta]u3, hw, 
+              hw\[CapitalDelta]u3, h\[Theta], h\[Theta]\[CapitalDelta]u3, 
+              h\[Gamma], h\[Gamma]\[CapitalDelta]u3, h\[Chi], 
+              h\[Chi]\[CapitalDelta]u3}}];\[IndentingNewLine]]\)}], "Input",
+  PageWidth->WindowWidth]
+}, Open  ]]
+}, Closed]]
+}, Open  ]]
+},
+FrontEndVersion->"4.0 for Microsoft Windows",
+ScreenRectangle->{{0, 1024}, {0, 723}},
+WindowSize->{1012, 696},
+WindowMargins->{{0, Automatic}, {Automatic, 0}},
+PrintingCopies->1,
+PrintingPageRange->{Automatic, Automatic},
+Magnification->1.5
+]
+
+
+(***********************************************************************
+Cached data follows.  If you edit this Notebook file directly, not using
+Mathematica, you must remove the line containing CacheID at the top of 
+the file.  The cache data will then be recreated when you save this file 
+from within Mathematica.
+***********************************************************************)
+
+(*CellTagsOutline
+CellTagsIndex->{}
+*)
+
+(*CellTagsIndex
+CellTagsIndex->{}
+*)
+
+(*NotebookFileOutline
+Notebook[{
+Cell[1717, 49, 479, 10, 198, "Input"],
+
+Cell[CellGroupData[{
+Cell[2221, 63, 133, 2, 95, "Subtitle"],
+
+Cell[CellGroupData[{
+Cell[2379, 69, 116, 2, 79, "Section"],
+
+Cell[CellGroupData[{
+Cell[2520, 75, 130, 2, 68, "Subsection"],
+Cell[2653, 79, 138, 3, 42, "Input"],
+Cell[2794, 84, 151, 3, 42, "Input"],
+Cell[2948, 89, 224, 4, 42, "Input"],
+Cell[3175, 95, 155, 3, 42, "Input"]
+}, Closed]],
+
+Cell[CellGroupData[{
+Cell[3367, 103, 130, 2, 42, "Subsection"],
+Cell[3500, 107, 197, 5, 93, "Input"],
+Cell[3700, 114, 136, 3, 42, "Input"]
+}, Closed]],
+
+Cell[CellGroupData[{
+Cell[3873, 122, 170, 3, 42, "Subsection"],
+
+Cell[CellGroupData[{
+Cell[4068, 129, 129, 2, 60, "Subsubsection"],
+Cell[4200, 133, 305, 7, 120, "Input"],
+Cell[4508, 142, 285, 6, 87, "Input"],
+Cell[4796, 150, 272, 6, 93, "Input"],
+Cell[5071, 158, 184, 4, 67, "Input"],
+Cell[5258, 164, 61, 2, 42, "Input"],
+Cell[5322, 168, 162, 3, 42, "Input"]
+}, Open  ]],
+
+Cell[CellGroupData[{
+Cell[5521, 176, 129, 2, 60, "Subsubsection"],
+Cell[5653, 180, 178, 4, 67, "Input"],
+Cell[5834, 186, 77, 2, 42, "Input"],
+Cell[5914, 190, 166, 3, 93, "Input"],
+Cell[6083, 195, 150, 3, 42, "Input"]
+}, Closed]],
+
+Cell[CellGroupData[{
+Cell[6270, 203, 131, 2, 37, "Subsubsection"],
+Cell[6404, 207, 237, 5, 120, "Input"],
+Cell[6644, 214, 227, 5, 93, "Input"],
+Cell[6874, 221, 235, 5, 93, "Input"],
+Cell[7112, 228, 143, 3, 42, "Input"],
+Cell[7258, 233, 82, 2, 42, "Input"],
+Cell[7343, 237, 108, 2, 42, "Input"],
+Cell[7454, 241, 163, 3, 42, "Input"],
+Cell[7620, 246, 102, 2, 42, "Input"],
+Cell[7725, 250, 67, 2, 42, "Input"],
+Cell[7795, 254, 80, 2, 42, "Input"],
+Cell[7878, 258, 143, 3, 42, "Input"]
+}, Closed]],
+
+Cell[CellGroupData[{
+Cell[8058, 266, 129, 2, 37, "Subsubsection"],
+Cell[8190, 270, 178, 4, 66, "Input"],
+Cell[8371, 276, 162, 3, 66, "Input"],
+Cell[8536, 281, 154, 3, 42, "Input"]
+}, Closed]],
+
+Cell[CellGroupData[{
+Cell[8727, 289, 138, 2, 37, "Subsubsection"],
+Cell[8868, 293, 186, 4, 42, "Input"],
+Cell[9057, 299, 176, 4, 42, "Input"]
+}, Closed]],
+
+Cell[CellGroupData[{
+Cell[9270, 308, 136, 2, 37, "Subsubsection"],
+Cell[9409, 312, 206, 4, 67, "Input"],
+Cell[9618, 318, 183, 4, 67, "Input"]
+}, Closed]],
+
+Cell[CellGroupData[{
+Cell[9838, 327, 138, 2, 37, "Subsubsection"],
+Cell[9979, 331, 144, 3, 42, "Input"],
+Cell[10126, 336, 164, 3, 42, "Input"],
+Cell[10293, 341, 176, 4, 34, "Input"],
+Cell[10472, 347, 224, 5, 39, "Text"]
+}, Closed]],
+
+Cell[CellGroupData[{
+Cell[10733, 357, 136, 2, 37, "Subsubsection"],
+Cell[10872, 361, 209, 4, 66, "Input"],
+Cell[11084, 367, 183, 4, 66, "Input"]
+}, Closed]],
+
+Cell[CellGroupData[{
+Cell[11304, 376, 101, 2, 37, "Subsubsection"],
+Cell[11408, 380, 1023, 17, 276, "Input"],
+Cell[12434, 399, 107, 3, 42, "Input"],
+Cell[12544, 404, 107, 3, 42, "Input"],
+Cell[12654, 409, 114, 3, 42, "Input"],
+Cell[12771, 414, 114, 3, 42, "Input"],
+Cell[12888, 419, 114, 3, 42, "Input"],
+Cell[13005, 424, 114, 3, 42, "Input"],
+Cell[13122, 429, 114, 3, 42, "Input"],
+Cell[13239, 434, 114, 3, 42, "Input"]
+}, Closed]]
+}, Closed]],
+
+Cell[CellGroupData[{
+Cell[13402, 443, 91, 1, 42, "Subsection"],
+
+Cell[CellGroupData[{
+Cell[13518, 448, 92, 1, 61, "Subsubsection"],
+Cell[13613, 451, 94, 2, 42, "Input"],
+Cell[13710, 455, 201, 5, 120, "Input"],
+Cell[13914, 462, 210, 5, 120, "Input"],
+Cell[14127, 469, 137, 3, 67, "Input"],
+Cell[14267, 474, 82, 2, 42, "Input"],
+Cell[14352, 478, 476, 8, 198, "Input"],
+Cell[14831, 488, 330, 7, 93, "Input"],
+Cell[15164, 497, 57, 2, 42, "Input"],
+Cell[15224, 501, 100, 2, 42, "Input"],
+Cell[15327, 505, 94, 2, 42, "Input"],
+Cell[15424, 509, 60, 2, 42, "Input"],
+Cell[15487, 513, 74, 2, 42, "Input"],
+Cell[15564, 517, 60, 2, 42, "Input"],
+Cell[15627, 521, 220, 5, 67, "Input"],
+Cell[15850, 528, 76, 2, 42, "Input"],
+Cell[15929, 532, 76, 2, 42, "Input"],
+Cell[16008, 536, 76, 2, 42, "Input"],
+Cell[16087, 540, 416, 8, 93, "Input"],
+Cell[16506, 550, 76, 2, 42, "Input"],
+Cell[16585, 554, 202, 4, 67, "Input"],
+Cell[16790, 560, 188, 4, 42, "Input"],
+Cell[16981, 566, 124, 3, 42, "Input"],
+Cell[17108, 571, 76, 2, 42, "Input"],
+Cell[17187, 575, 97, 2, 42, "Input"],
+Cell[17287, 579, 113, 2, 42, "Input"],
+Cell[17403, 583, 104, 2, 67, "Input"],
+Cell[17510, 587, 106, 2, 42, "Input"],
+Cell[17619, 591, 60, 2, 42, "Input"]
+}, Closed]],
+
+Cell[CellGroupData[{
+Cell[17716, 598, 129, 2, 38, "Subsubsection"],
+Cell[17848, 602, 182, 4, 66, "Input"],
+Cell[18033, 608, 162, 3, 66, "Input"]
+}, Closed]],
+
+Cell[CellGroupData[{
+Cell[18232, 616, 129, 2, 38, "Subsubsection"],
+Cell[18364, 620, 182, 4, 66, "Input"],
+Cell[18549, 626, 162, 3, 66, "Input"],
+Cell[18714, 631, 135, 3, 40, "Input"],
+Cell[18852, 636, 94, 2, 40, "Input"]
+}, Closed]],
+
+Cell[CellGroupData[{
+Cell[18983, 643, 139, 2, 38, "Subsubsection"],
+Cell[19125, 647, 144, 3, 42, "Input"],
+Cell[19272, 652, 74, 2, 42, "Input"],
+Cell[19349, 656, 190, 4, 46, "Text"],
+Cell[19542, 662, 376, 7, 42, "Input"],
+Cell[19921, 671, 100, 2, 42, "Input"],
+Cell[20024, 675, 102, 2, 42, "Input"],
+Cell[20129, 679, 140, 4, 46, "Text"]
+}, Closed]],
+
+Cell[CellGroupData[{
+Cell[20306, 688, 136, 2, 38, "Subsubsection"],
+Cell[20445, 692, 206, 4, 66, "Input"],
+Cell[20654, 698, 183, 4, 66, "Input"],
+Cell[20840, 704, 193, 5, 45, "Text"]
+}, Closed]],
+
+Cell[CellGroupData[{
+Cell[21070, 714, 139, 2, 38, "Subsubsection"],
+Cell[21212, 718, 83, 2, 42, "Input"],
+Cell[21298, 722, 108, 2, 42, "Input"],
+Cell[21409, 726, 176, 4, 42, "Input"],
+Cell[21588, 732, 92, 2, 42, "Input"]
+}, Closed]],
+
+Cell[CellGroupData[{
+Cell[21717, 739, 136, 2, 38, "Subsubsection"],
+Cell[21856, 743, 210, 4, 66, "Input"],
+Cell[22069, 749, 183, 4, 66, "Input"]
+}, Closed]],
+
+Cell[CellGroupData[{
+Cell[22289, 758, 139, 2, 38, "Subsubsection"],
+Cell[22431, 762, 144, 3, 40, "Input"],
+Cell[22578, 767, 164, 3, 40, "Input"],
+Cell[22745, 772, 176, 4, 40, "Input"],
+Cell[22924, 778, 224, 5, 69, "Text"]
+}, Closed]],
+
+Cell[CellGroupData[{
+Cell[23185, 788, 136, 2, 38, "Subsubsection"],
+Cell[23324, 792, 209, 4, 66, "Input"],
+Cell[23536, 798, 183, 4, 66, "Input"]
+}, Closed]],
+
+Cell[CellGroupData[{
+Cell[23756, 807, 117, 3, 40, "Subsubsection"],
+Cell[23876, 812, 65, 1, 42, "Input"],
+Cell[23944, 815, 38, 1, 42, "Input"],
+Cell[23985, 818, 2450, 43, 562, "Input"],
+Cell[26438, 863, 107, 3, 42, "Input"],
+Cell[26548, 868, 107, 3, 42, "Input"],
+Cell[26658, 873, 114, 3, 42, "Input"],
+Cell[26775, 878, 114, 3, 42, "Input"],
+Cell[26892, 883, 114, 3, 42, "Input"],
+Cell[27009, 888, 114, 3, 42, "Input"]
+}, Open  ]]
+}, Open  ]],
+
+Cell[CellGroupData[{
+Cell[27172, 897, 141, 5, 94, "Subsection"],
+Cell[27316, 904, 5591, 91, 1446, "Input"]
+}, Open  ]]
+}, Closed]]
+}, Open  ]]
+}
+]
+*)
+
+
+
+
+(***********************************************************************
+End of Mathematica Notebook file.
+***********************************************************************)
+
